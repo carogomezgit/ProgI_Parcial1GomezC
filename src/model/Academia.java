@@ -40,16 +40,25 @@ public class Academia {
   }
 
   public void inscribirEstudiante(String codigoCurso) throws Exception{
+    boolean disponible = false;
     for (int i = 0; i < cantCursos; i++) {
       if (cursos[i] != null && cursos[i].getCodigo().equals(codigoCurso)) {
-        float precioFinal = cursos[i].;
-        System.out.println("Has sido inscripto correctamente");
+        float precioFinal = cursos[i].calcularCostoFinal();
+        System.out.println("Has sido inscripto correctamente al curso "+ codigoCurso);
         totalIngresos += precioFinal;
         inscripciones++;
-      } else {
-        throw new CursoNoDisponibleException("El curso no está disponible");
+
+        for (int j = i; j < cantCursos - 1; j++) {
+          cursos[j] = cursos[j + 1];
+        }
+        cursos[cantCursos - 1] = null;
+        cantCursos--;
+        disponible = true;
+        break;
       }
     }
+    if (!disponible)
+      throw new CursoNoDisponibleException("El curso " + codigoCurso + " no está disponible");
   }
 
   public void mostrarCursosDisponibles(){

@@ -1,6 +1,6 @@
 package model;
 
-public abstract class Curso {
+public abstract class Curso implements Inscribible {
 
   // atributos
   private String codigo;

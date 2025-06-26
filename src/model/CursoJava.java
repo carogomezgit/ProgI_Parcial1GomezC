@@ -1,6 +1,6 @@
 package model;
 
-public class CursoJava extends Curso implements Inscribible {
+public class CursoJava extends Curso {
 
   // atributos
   private float porcDescuento = 0.90f;
