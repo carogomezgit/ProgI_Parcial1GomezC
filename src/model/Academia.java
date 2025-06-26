@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Scanner;
+
 public class Academia {
 
   // atributos
@@ -38,7 +40,16 @@ public class Academia {
   }
 
   public void inscribirEstudiante(String codigoCurso) throws Exception{
-
+    for (int i = 0; i < cantCursos; i++) {
+      if (cursos[i] != null && cursos[i].getCodigo().equals(codigoCurso)) {
+        float precioFinal = cursos[i].;
+        System.out.println("Has sido inscripto correctamente");
+        totalIngresos += precioFinal;
+        inscripciones++;
+      } else {
+        throw new CursoNoDisponibleException("El curso no está disponible");
+      }
+    }
   }
 
   public void mostrarCursosDisponibles(){
