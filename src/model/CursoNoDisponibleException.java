@@ -1,7 +1,7 @@
 package model;
 
-public class CursoNoDisponible extends RuntimeException {
-  public CursoNoDisponible(String message) {
+public class CursoNoDisponibleException extends RuntimeException {
+  public CursoNoDisponibleException(String message) {
     super(message);
   }
 }
